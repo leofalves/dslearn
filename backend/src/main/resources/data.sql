@@ -18,3 +18,7 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Javascript', 'https://i0.wp.com/www.clickguarulhos.com.br/wp-content/uploads/2021/09/20210910-javacurso.jpg?fit=1024%2C683&ssl=1', 'https://blog.raleduc.com.br/wp-content/uploads/2016/06/aaasd.jpg');
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Oracle PL-SQL', 'https://arquivo.devmedia.com.br/cursos/imagem/curso_1456.jpg', 'http://www.mastertraining.com.br/wp-content/uploads/2013/02/oracle_black.jpg');
+
+INSERT INTO tb_offer(edition, start_moment, end_moment, course_id) VALUES ('JS 2022 - BLACK FRIDAY', TIMESTAMP WITH TIME ZONE '2022-11-01T03:00:01Z', TIMESTAMP WITH TIME ZONE '2022-11-30T02:59:59Z', 1);
+INSERT INTO tb_offer(edition, start_moment, end_moment, course_id) VALUES ('JS 2022 - CHRISTMAS', TIMESTAMP WITH TIME ZONE '2022-12-01T03:00:01Z', TIMESTAMP WITH TIME ZONE '2022-12-30T02:59:59Z', 1);
+INSERT INTO tb_offer(edition, start_moment, end_moment, course_id) VALUES ('ORCL 2022 - BLACK FRIDAY', TIMESTAMP WITH TIME ZONE '2022-11-01T03:00:01Z', TIMESTAMP WITH TIME ZONE '2022-11-30T02:59:59Z', 2);
