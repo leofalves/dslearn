@@ -27,3 +27,8 @@ INSERT INTO tb_resource(title, description, position, img_uri, type, offer_id) V
 INSERT INTO tb_resource(title, description, position, img_uri, type, offer_id) VALUES ('Forum','Tire suas dúvidas', 2, 'https://i0.wp.com/www.clickguarulhos.com.br/wp-content/uploads/2021/09/20210910-javacurso.jpg?fit=1024%2C683&ssl=1', 2, 1);
 INSERT INTO tb_resource(title, description, position, img_uri, type, offer_id) VALUES ('Aulas ao vivo','Lives exclusivas para a turma', 3, 'https://i0.wp.com/www.clickguarulhos.com.br/wp-content/uploads/2021/09/20210910-javacurso.jpg?fit=1024%2C683&ssl=1', 0, 1);
 
+INSERT INTO tb_section(title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter One', 'Basic Sintax', 1, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/09/javascript-console-group.png', 1, null);
+INSERT INTO tb_section(title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter Two', 'Escope', 1, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/09/javascript-console-group.png', 1, 1);
+INSERT INTO tb_section(title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter Three', 'Variables', 1, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/09/javascript-console-group.png', 1, 2);
+
+
