@@ -31,4 +31,6 @@ INSERT INTO tb_section(title, description, position, img_uri, resource_id, prere
 INSERT INTO tb_section(title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter Two', 'Escope', 1, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/09/javascript-console-group.png', 1, 1);
 INSERT INTO tb_section(title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Chapter Three', 'Variables', 1, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2020/09/javascript-console-group.png', 1, 2);
 
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES(1, 1, TIMESTAMP WITH TIME ZONE '2022-11-05T13:00:01Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES(2, 1, TIMESTAMP WITH TIME ZONE '2022-11-08T18:22:31Z', null, true, false);
 
