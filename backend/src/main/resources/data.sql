@@ -48,3 +48,10 @@ INSERT INTO tb_task (id, description, question_count, approval_count, weight, du
 
 INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (1, 1, 1);
 INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('First feedback: Please review', TIMESTAMP WITH TIME ZONE '2022-12-10T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Second feedback: Please review', TIMESTAMP WITH TIME ZONE '2022-12-12T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Third feedback: Please review', TIMESTAMP WITH TIME ZONE '2022-12-14T13:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+
+
