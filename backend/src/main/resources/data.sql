@@ -2,7 +2,6 @@ INSERT INTO tb_user (name, email, password) VALUES ('Alex Brown', 'alex@gmail.co
 INSERT INTO tb_user (name, email, password) VALUES ('Bob White', 'bob@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 INSERT INTO tb_user (name, email, password) VALUES ('Maria Green', 'maria@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 
-
 INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_INSTRUCTOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
@@ -34,3 +33,18 @@ INSERT INTO tb_section(title, description, position, img_uri, resource_id, prere
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES(1, 1, TIMESTAMP WITH TIME ZONE '2022-11-05T13:00:01Z', null, true, false);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES(2, 1, TIMESTAMP WITH TIME ZONE '2022-11-08T18:22:31Z', null, true, false);
 
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Class one - Chapter one', 1, 1);
+INSERT INTO tb_content(text_content, video_uri, id) VALUES ('Class one - Map structure in Java','https://youtu.be/wzJTpzHHoVg', 1);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Class two - Chapter one', 2, 1);
+INSERT INTO tb_content(text_content, video_uri, id) VALUES ('Class two - Bean Validation','https://youtu.be/ulPtCY7nhwM', 2);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Class three - Chapter one', 3, 1);
+INSERT INTO tb_content(text_content, video_uri, id) VALUES ('Class three - Instalar Java JDK 2021 no Windows - OpenJDK Zulu','https://youtu.be/laC0fiI-IOM', 3);
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Task for Chapter one', 4, 1);
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (4, 'Do a good job', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2022-12-31T23:59:00Z');
+
+
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (2, 1, 1);
