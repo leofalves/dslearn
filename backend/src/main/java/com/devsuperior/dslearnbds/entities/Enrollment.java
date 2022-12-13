@@ -2,13 +2,17 @@ package com.devsuperior.dslearnbds.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.devsuperior.dslearnbds.entities.pk.EnrollmentPK;
@@ -31,6 +35,9 @@ public class Enrollment implements Serializable {
 	
 	@ManyToMany(mappedBy = "enrollmentsDone")
 	private Set<Lesson> lessonsDone = new HashSet<>();	// Relacionamentos many to many quando não tem repetição, usa-se o Set e não o List
+	
+	@OneToMany(mappedBy = "enrollment")
+	private List<Deliver> deliveries = new ArrayList<>();
 	
 	public Enrollment() {		
 	}
@@ -93,7 +100,25 @@ public class Enrollment implements Serializable {
 	public void setOnlyUpdate(boolean onlyUpdate) {
 		this.onlyUpdate = onlyUpdate;
 	}
-	
-	
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	
+	public List<Deliver> getDeliveries() {
+		return deliveries;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Enrollment other = (Enrollment) obj;
+		return Objects.equals(id, other.id);
+	}
 }
