@@ -147,4 +147,13 @@ public class User implements UserDetails, Serializable{
 		return true;
 	}
 	
+	// Verifica se um usuário possui um Role específico
+	public boolean hasRole(String roleName) {
+		for (Role role : this.roles) {
+			if(role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

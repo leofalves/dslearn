@@ -23,8 +23,15 @@ public class UserService implements UserDetailsService {
 	@Autowired
 	private UserRepository repository;
 	
+	@Autowired
+	private AuthService authService;
+	
 	@Transactional(readOnly = true)
 	public UserDto findById(Long id) {
+		
+		//Validar se o usuário logado pode consultar o usuário do parâmetro id
+		authService.validateSelfOrAdmin(id);
+		
 		Optional<User> obj = repository.findById(id);
 		User entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
 		return new UserDto(entity);
