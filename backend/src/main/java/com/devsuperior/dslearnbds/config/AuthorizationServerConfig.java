@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -48,6 +49,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
 	private JwtTokenEnhancer tokenEnhancer;
 	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -58,11 +62,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-		.withClient(clientId)                            // application name
-		.secret(passwordEncoder.encode(clientSecret))    // application secret
-		.scopes("read", "write")                         // access types
-		.authorizedGrantTypes("password")                // password is the default for oauth2
-		.accessTokenValiditySeconds(jwtDuration);        // expiry time -> 24 hours = 86400
+		.withClient(clientId)                            		// application name
+		.secret(passwordEncoder.encode(clientSecret))    		// application secret
+		.scopes("read", "write")                         		// access types
+		.authorizedGrantTypes("password", "refresh_token")      // password is the default for oauth2
+		.accessTokenValiditySeconds(jwtDuration)        		// expiry time -> 24 hours = 86400
+		.refreshTokenValiditySeconds(jwtDuration);        		// expiry time -> 24 hours = 86400
 
 	}
 
@@ -75,6 +80,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		endpoints.authenticationManager(authenticationManager)
 		.tokenStore(tokenStore)
 		.accessTokenConverter(acessTokenConverter)
-		.tokenEnhancer(chain);
+		.tokenEnhancer(chain)
+		.userDetailsService(userDetailsService);
 	}
 }
